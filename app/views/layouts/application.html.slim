@@ -1,11 +1,46 @@
 doctype html
-html
+html lang="ru"
   head
-    title Опрос
+    title Знаете ли Вы Ruby?
     = csrf_meta_tags
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload'
 
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    meta name="description" content=""
+    meta name="author" content=""
+    link rel="shortcut icon" href="favicon.ico"
+
+  /! HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+  /! [if lt IE 9]>
+  /!  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  /!  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  /!<![endif]
 
   body
-    = yield
+    div.site-wrapper
+      div.site-wrapper-inner
+        div.cover-container
+          div.masthead.clearfix
+            div.inner
+              h3.masthead-brand "The <u>T</u>est is the best!" <br><i><span class="morrison">(J. Morrison)</span></i>
+              ul.nav.masthead-nav
+                li
+                  =link_to "На главную", root_path
+                li.active
+                  = link_to "Правила теста", rules_path
+                - if current_user
+                  li
+                    = link_to "Выход", destroy_user_session_path
+                - else
+                  li
+                    = link_to "Вход", destroy_user_session_path
+          div.inner.cover#main-container
+            = yield
+          div.mastfoot
+            div.inner
+              p 2016 &copy Igor Klekotnev
+
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    script src="http://bootstrap-3.ru/assets/js/docs.min.js"

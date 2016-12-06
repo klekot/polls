@@ -26,6 +26,10 @@ gem 'turbolinks', '~> 5.x'
 # Authorization
 gem 'devise'
 
+# Localization
+gem 'rails-i18n', '~> 5.0.0'
+gem 'devise-i18n'
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5'
