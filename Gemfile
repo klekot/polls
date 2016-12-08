@@ -21,7 +21,8 @@ gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '5.0.0'
 gem 'jquery-turbolinks'
-gem 'turbolinks', '~> 5.x'
+# gem 'turbolinks', '~> 5.x'
+gem 'jquery-countdown-rails'
 
 # Authorization
 gem 'devise'

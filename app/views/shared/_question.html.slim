@@ -1,6 +1,4 @@
-div.timer-container
-  = render partial: 'shared/timer'
-= form_tag('/next', id: 'question_form', method: :post) do
+= form_tag(:question, id: 'question_form', method: :post, remote: true) do
   = label_tag @question.question
   = hidden_field_tag name="user_id", value="#{current_user.id}"
   = hidden_field_tag name="question_id", value="#{@question.id}"
@@ -10,4 +8,4 @@ div.timer-container
       label
         input type="radio" name="selected_answer_id" id="optionsRadios#{i}" value="#{answer.id}" = answer.answer
   div.actions
-    = submit_tag "Ответ", class: "btn btn-default", id: "question_button"
+    = submit_tag "Ответ", class: "btn btn-default ajax-button", id: "question_button"

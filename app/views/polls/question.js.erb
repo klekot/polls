@@ -1,0 +1,22 @@
+var seconds = 60;
+var penalty = 0;
+var form = '<%= render partial: 'shared/question', locals: {counter: @counter} if @counter <= @questions_quantity %>\
+           <p><%= params.inspect %></p><p><%= @correct %></p>';
+
+$("#poll-container").empty();
+$("#poll-container").append(form);
+$(".time").empty();
+
+<% if @correct == "NO!" %>
+  seconds = $('.countdown-amount').text();
+  penalty = 10;
+  $('.time').countdown({until: +(seconds-penalty), format: 'S'});
+<% else %>
+  $('.time').countdown({until: +(seconds-penalty), format: 'S'});
+<% end %>
+
+<% if @counter > @questions_quantity %>
+  window.location = "/resume";
+<% end %>
+
+
