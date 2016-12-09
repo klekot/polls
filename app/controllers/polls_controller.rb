@@ -30,13 +30,23 @@ class PollsController < ApplicationController
   end
 
   def resume
+    last_penalty = false
     @wrong = []
+    @polling_time = POLLING_TIME
+    @penalty = PENALTY
+    @remain = @@remain
     @resumes.each do |resume|
       unless Answer.find(resume.answer_id).correct
         @wrong.push Question.find(resume.question_id).question
+        if resume.question_id == @questions_quantity
+          last_penalty = true
+        end
       end
     end
-    current_user.polling_time = POLLING_TIME - @@remain.to_i - PENALTY * (@wrong.size - START_COUNT)
+    # костыль, знаю ;)
+    current_user.polling_time = last_penalty ?
+        POLLING_TIME - @@remain.to_i - PENALTY * (@wrong.size - 1) :
+        POLLING_TIME - @@remain.to_i - PENALTY * (@wrong.size )
     current_user.save
   end
 
