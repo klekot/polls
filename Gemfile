@@ -32,6 +32,9 @@ gem 'devise'
 gem 'rails-i18n', '~> 5.0.0'
 gem 'devise-i18n'
 
+# Security
+gem 'figaro'
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5'
@@ -43,5 +46,5 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  #gem 'mina', '0.3.8'
+  gem 'mina', '0.3.8'
 end

@@ -19,3 +19,7 @@
 /config/database.yml
 /config/secrets.yml
 /config/cable.yml
+/config/deploy.rb
+
+# Ignore application configuration
+/config/application.yml
