@@ -1,0 +1,6 @@
+table.table-responsive.table-bordered
+  tbody
+  - Resume.for_user(user).each do |resume|
+    tr
+      td = Question.find(resume.question_id).question
+      td = Answer.find(resume.answer_id).answer

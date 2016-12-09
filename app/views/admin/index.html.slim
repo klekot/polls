@@ -1,0 +1,16 @@
+h1 = "Здравствуйте #{current_user.email}!"
+h2 Список пользовательских результатов
+table.table.table-responsive
+  thead
+    th Еmail пользователя
+    th Результаты опроса
+    th Затраченное время
+  tbody
+  - @users.each do |user|
+    tr
+      td = user.email
+      -if Resume.for_user(user).size > 0
+        td = render partial: 'shared/poll', locals: { user: user }
+      - else
+        td Опрос еще не проводился
+      td = user.polling_time unless user.polling_time.nil?

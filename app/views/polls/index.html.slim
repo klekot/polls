@@ -1,5 +1,12 @@
-h1.cover-heading Знаете ли Вы Ruby?
-p.lead Если вы уверены в том, что отлично знаете язык программирования <b>Ruby</b>,
-   зарегистрируйтесь и пройдите небольшой тест, выбрав правильные ответы на заданные вопросы.
-p.lead
-  = link_to "Зарегистрироваться", new_user_registration_path, class: "btn btn-lg btn-default"
+- unless current_user
+  h1.cover-heading Знаете ли Вы Ruby?
+  p.lead Если вы уверены в том, что отлично знаете язык программирования <b>Ruby</b>,
+     зарегистрируйтесь и пройдите небольшой тест, выбрав правильные ответы на заданные вопросы.
+  p.lead
+    = link_to "Зарегистрироваться", new_user_registration_path, class: "btn btn-lg btn-default"
+- else
+  h1.cover-heading Знаете ли Вы Ruby?
+  p.lead Если вы уверены в том, что отлично знаете язык программирования <b>Ruby</b>,
+     пройдите небольшой тест, выбрав правильные ответы на заданные вопросы.
+  p.lead
+    = link_to "Тестовый опрос", poll_path, class: "btn btn-lg btn-default"

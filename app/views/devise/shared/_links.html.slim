@@ -8,23 +8,23 @@ br
   = link_to "Зарегистрироваться", new_registration_path(resource_name)
 br
 
-br
-- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
-  = link_to "Забыли ваш пароль?", new_password_path(resource_name)
-br
-
-br
-- if devise_mapping.confirmable? && controller_name != 'confirmations'
-  = link_to "Не получили инструкции для восстановления доступа?", new_confirmation_path(resource_name)
-br
-
-br
-- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks'
-  = link_to "Не получили инструкции для разблокировки аккаунта?", new_unlock_path(resource_name)
-br
-
-br
-- if devise_mapping.omniauthable?
-  - resource_class.omniauth_providers.each do |provider|
-    = link_to "Вход с помощью #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider)
-br
+/br
+/- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
+/  = link_to "Забыли ваш пароль?", new_password_path(resource_name)
+/br
+/
+/br
+/- if devise_mapping.confirmable? && controller_name != 'confirmations'
+/  = link_to "Не получили инструкции для восстановления доступа?", new_confirmation_path(resource_name)
+/br
+/
+/br
+/- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks'
+/  = link_to "Не получили инструкции для разблокировки аккаунта?", new_unlock_path(resource_name)
+/br
+/
+/br
+/- if devise_mapping.omniauthable?
+/  - resource_class.omniauth_providers.each do |provider|
+/    = link_to "Вход с помощью #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider)
+/br

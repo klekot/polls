@@ -23,6 +23,7 @@ gem 'jquery-ui-rails', '5.0.0'
 gem 'jquery-turbolinks'
 # gem 'turbolinks', '~> 5.x'
 gem 'jquery-countdown-rails'
+gem 'gon'
 
 # Authorization
 gem 'devise'

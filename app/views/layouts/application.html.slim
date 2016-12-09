@@ -12,6 +12,8 @@ html lang="ru"
     meta name="author" content=""
     link rel="shortcut icon" href="favicon.ico"
 
+    = Gon::Base.render_data
+
   /! HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
   /! [if lt IE 9]>
   /!  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -29,13 +31,15 @@ html lang="ru"
                 li
                   =link_to "На главную", root_path
                 li.active
-                  = link_to "Правила теста", rules_path
+                  = link_to "Правила", rules_path
                 - if current_user
                   li
                     = link_to "Выход", destroy_user_session_path
+                    li
+                      = link_to "Админка", admin_path if current_user.admin
                 - else
                   li
-                    = link_to "Вход", destroy_user_session_path
+                    = link_to "Вход", new_user_session_path
           div.time
           div.inner.cover#main-container
             = yield

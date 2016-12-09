@@ -1,10 +1,15 @@
-- if @wrong.empty?
+- if @wrong.empty? && @resumes.size == @questions_quantity
   h2 Поздравляем! Вы правильно ответили на все вопросы!
+- elsif @resumes.size < @questions_quantity
+  h2 Вы ответили не на все вопросы!
 - else
+  h2.game-over
   - if @wrong.size > 1
     h3 Вы неправильно ответили на следующие вопросы:
   - else
-    h3 Вы неправильно ответили на следующиq вопрос:
+    h3 Вы неправильно ответили на следующий вопрос:
   ul
   - @wrong.each do |w|
     li = w
+
+h2 = "Затраченное время: #{current_user.polling_time} сек."
